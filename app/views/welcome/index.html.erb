@@ -1,0 +1,11 @@
+<h1>Asset Tasks</h1>
+
+
+<h3>Listed Assets</h3>
+<% @combined_assets.each do |asset| %>
+	<p>
+		<%= image_tag(asset.images.first.variant(resize: "100x100")) %>
+		<%= asset.address %>
+		<p><%= link_to 'Buy', root_path, class: "btn btn-primary"%></p>
+	</p>
+<% end %>

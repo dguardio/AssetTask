@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner: MyString
+  address: MyString
+  rooms: 1
+  floors: 1
+  air_cond: 
+  price: 9.99
+
+two:
+  owner: MyString
+  address: MyString
+  rooms: 1
+  floors: 1
+  air_cond: 
+  price: 9.99
