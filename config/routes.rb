@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   	resources :commercial_units
   	resource :complex_buildings
 	root 'welcome#index'
+	get 'links', to: 'welcome#manager_link'
+	post 'buy', to: 'welcome#buy'
 
 end

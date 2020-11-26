@@ -10,6 +10,35 @@
   </head>
 
   <body>
+    
+    <nav>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <%= link_to 'Asset Tasks', root_path, class: 'nav-link active' %>
+        </li>
+<!--         <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Asset Lists</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Houses</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li> -->
+        <li class="nav-item">
+          <%= link_to 'Add Assets', links_path, class: "nav-link"%>    
+        </li>
+      </ul>       
+    </nav>   
+    <% flash.each do |type, msg| %>
+      <div class="alert alert-info">
+        <%= msg %>
+      </div>
+    <% end %>      
     <%= yield %>
   </body>
 </html>

@@ -1,3 +1,3 @@
 class ComplexBuilding < ApplicationRecord
-	has_many_attached :images
+	has_many_attached :complex_images
 end

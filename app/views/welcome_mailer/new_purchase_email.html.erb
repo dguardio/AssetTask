@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Thank you for completing your Purchase of <%= @asset.owner%>'s <%= @asset.address %> property!</p>
+    <p>
+    Order details<br>
+    --------------------------
+    </p>
+    <p>Owner: <%= @asset.owner %></p>
+    <p>Manager Email: <%= @asset.manager_email %></p>
+    <p>Property Address: <%= @asset.address %></p>
+    <p> 
+      Kindly contact <%= @asset.manager_email %> for tracking of Deeds and other necessary documentation.
+    </p>
+  </body>
+</html>

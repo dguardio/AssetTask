@@ -18,7 +18,7 @@ class CommercialUnitsController < ApplicationController
 
 	def create
 		@commercial_unit = CommercialUnit.new(commercial_unit_params)
-		@commercial_unit.images.attach(params[:commercial_unit][:images])
+		@commercial_unit.commercial_images.attach(params[:commercial_unit][:commercial_images])
 		if @commercial_unit.save!
 			redirect_to @commercial_unit
 		else
@@ -35,10 +35,10 @@ class CommercialUnitsController < ApplicationController
 
 	private
 		def set_commercial_unit
-			@complex_building = CommercialUnit.find(params[:id])
+			@commercial_unit = CommercialUnit.find(params[:id])
 		end
 
 		def commercial_unit_params
-			params.require(:commercial_unit).permit(:owner, :address, :rooms, :sqmt, :floors, :air_cond, :price)
+			params.require(:commercial_unit).permit(:owner, :address, :shops, :sqmt, :parking, :price, :commercial_images, :manager_email)
 		end
 end

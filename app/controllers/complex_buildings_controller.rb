@@ -18,7 +18,7 @@ class ComplexBuildingsController < ApplicationController
 
 	def create
 		@complex_building = ComplexBuilding.new(house_params)
-		@complex_building.images.attach(params[:complex_building][:images])
+		@complex_building.complex_images.attach(params[:complex_building][:complex_images])
 		if @complex_building.save!
 			redirect_to @complex_building
 		else
@@ -39,6 +39,6 @@ class ComplexBuildingsController < ApplicationController
 		end
 
 		def complex_building_params
-			params.require(:complex_building).permit(:owner, :address, :rooms, :sqmt, :floors, :air_cond, :price)
+			params.require(:complex_building).permit(:owner, :address, :units, :sqmt, :price, :complex_images, :manager_email)
 		end
 end

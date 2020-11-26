@@ -5,12 +5,16 @@
 				
 				<div class="form-group row">
 					<%= form.label :images, "Select Pictures of the House" %>
-					<%= form.file_field :images, multiple: true %>
+					<%= form.file_field :complex_images, multiple: true %>
 				</div>
 				<div class="form-group row">
 					<%= form.label :owner %>
 					<%= form.text_field :owner, placeholder: "Name of House Owner", class: "form-control", autofocus: true%>
 				</div>
+				<div class="form-group row">
+					<%= form.label :manager_email %>
+					<%= form.text_field :manager_email, placeholder: "Your Email as Property Manager", class: "form-control", autofocus: true%>
+				</div>					
 				<div class="form-group row">
 					<%= form.label :address %>
 					<%= form.text_field :address, placeholder: "Address of Asset", class: "form-control", autofocus: true%>

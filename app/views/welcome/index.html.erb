@@ -1,11 +1,73 @@
-<h1>Asset Tasks</h1>
+<div class="container">
+	<h3>Listed Assets</h3>
+	<% @combined_assets.each do |asset| %>
+		<div class="row">
+			<% if asset.class.name == "House" %>
+				<%= image_tag(asset.house_images.first, class: "img-thumbnail img-fluid col-sm-4") %>
+				<div class="col-sm-6">
+					<%= asset.address %>
+					<%= asset.class.name %> <br>
+					$ <%= asset.price %>						
+				</div>			
+				<div class="col-sm-2">
+					<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#buyForm<%= asset.id %>" aria-expanded="false" aria-controls="buyForm<%= asset.id %>">Buy Now</button>
+					<div class="collapse multi-collapse" id="buyForm<%= asset.id %>">
+						<p>Enter Your email to Complete transaction</p>
+						<div class="card card-body">
+							<%= form_tag buy_path do %>  
+								<%= hidden_field_tag :product_id, asset.id %> 
+								<%= hidden_field_tag :product_class, asset.class.name %> 
+								<%= text_field_tag :buyer_email, params[:buyer_email] %>  
+								<%= submit_tag "Submit" %>    
+							<% end %>  
+						</div>
+					</div>
+				</div>
+			<% elsif asset.class.name == "CommercialUnit" %>
+				<%= image_tag(asset.commercial_images.first, class: "img-thumbnail img-fluid col-sm-4") %>
+				<div class="col-sm-6">
+					<%= asset.address %>
+					<%= asset.class.name %>	<br>
+					$ <%= asset.price %>				
+				</div>	
+				<div class="col-sm-2">
+					<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#buyForm<%= asset.id %>" aria-expanded="false" aria-controls="buyForm<%= asset.id %>">Buy Now</button>
+					<div class="collapse multi-collapse" id="buyForm<%= asset.id %>">
+						<p>Enter Your email to Complete transaction</p>
+						<div class="card card-body">
+							<%= form_tag buy_path do %>  
+								<%= hidden_field_tag :product_id, asset.id %> 
+								<%= hidden_field_tag :product_class, asset.class.name %> 
+								<%= text_field_tag :buyer_email, params[:buyer_email] %>  
+								<%= submit_tag "Submit" %>    
+							<% end %>  
+						</div>
+					</div>
+				</div>
+			<% else %>
+				<%= image_tag(asset.complex_images.first, class: "img-thumbnail img-fluid col-sm-4") %>
+				<div class="col-sm-6">
+					<%= asset.address %>
+					<%= asset.class.name %>	<br>
+					$ <%= asset.price %>	
+				</div>
+				<div class="col-sm-2">
+					<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#buyForm<%= asset.id %>" aria-expanded="false" aria-controls="buyForm<%= asset.id %>">Buy Now</button>
+					<div class="collapse multi-collapse" id="buyForm<%= asset.id %>">
+						<p>Enter Your email to Complete transaction</p>
+						<div class="card card-body">
+							<%= form_tag buy_path do %>  
+								<%= hidden_field_tag :product_id, asset.id %> 
+								<%= hidden_field_tag :product_class, asset.class.name %> 
+								<%= text_field_tag :buyer_email, params[:buyer_email] %>  
+								<%= submit_tag "Submit" %>    
+							<% end %>  
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+		<br>
+	<% end %>	
+</div>
 
-
-<h3>Listed Assets</h3>
-<% @combined_assets.each do |asset| %>
-	<p>
-		<%= image_tag(asset.images.first.variant(resize: "100x100")) %>
-		<%= asset.address %>
-		<p><%= link_to 'Buy', root_path, class: "btn btn-primary"%></p>
-	</p>
-<% end %>

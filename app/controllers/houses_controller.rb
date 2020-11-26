@@ -18,7 +18,7 @@ class HousesController < ApplicationController
 
 	def create
 		@house = House.new(house_params)
-		@house.images.attach(params[:house][:images])
+		@house.house_images.attach(params[:house][:house_images])
 		if @house.save!
 			redirect_to @house
 		else
@@ -39,6 +39,6 @@ class HousesController < ApplicationController
 		end
 
 		def house_params
-			params.require(:house).permit(:owner, :address, :rooms, :sqmt, :floors, :air_cond, :price)
+			params.require(:house).permit(:owner, :address, :rooms, :sqmt, :floors, :air_cond, :price, :house_images, :manager_email)
 		end
 end
